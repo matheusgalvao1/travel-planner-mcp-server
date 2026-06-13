@@ -1,0 +1,46 @@
+{
+  "name": "travel-planner-mcp",
+  "version": "0.1.0",
+  "description": "Travel Planner MCP Server — exposes search_flights and search_hotels backed by Google Flights and Google Hotels (via SerpApi) for an LLM travel-planning agent.",
+  "type": "module",
+  "bin": {
+    "travel-planner-mcp": "./build/index.js"
+  },
+  "files": [
+    "build",
+    "README.md",
+    "LICENSE",
+    ".env.example"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc && chmod 755 build/index.js",
+    "dev": "tsx src/index.ts",
+    "start": "node build/index.js",
+    "mock": "TRAVEL_MCP_MOCK=1 tsx src/index.ts",
+    "test": "node --import tsx --test test/*.test.ts"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "travel",
+    "flights",
+    "hotels",
+    "serpapi",
+    "google-flights",
+    "google-hotels"
+  ],
+  "author": "Matheus Galvao <matheus.galvao@codesignal.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.13.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.8.0"
+  }
+}
